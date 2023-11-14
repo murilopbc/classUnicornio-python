@@ -59,17 +59,24 @@ class Unicornio:
 
     # FUNÇÃO VOAR
     def voar(self):
-        peso = float(input("Digite o peso do unicórnio: "))
-        self.__peso = peso
-        velocidade = self.getPeso() * 0.5
-        self.velocidade = velocidade
-        print(f"{self.getNome()}, você pode voar até {self.velocidade} km/h!")
-        if self.velocidade >= 100:
-            print("Impressionante, você é muito veloz!")
-        elif self.velocidade >= 50:
-            print("Você é capaz de atingir uma velocidade considerável no céu!")
-        else:
-            print("Infelizmente você enfrenta dificuldades ao voar longas distâncias!")
+        while True:
+            peso = float(input("Digite o peso do unicórnio: "))
+            self.__peso = peso
+            if self.__peso > 600 or self.__peso < 100:
+                print("Valor Inválido. Digite um valor entre 100 e 600 kg!")
+            else:
+                velocidade = self.__peso * 0.4
+                self.velocidade = velocidade
+                print(f"{self.getNome()}, você pode voar até {self.velocidade} km/h!")
+                if self.velocidade >= 100:
+                    print("Impressionante, você é muito veloz!")
+                    break
+                elif self.velocidade >= 50:
+                    print("Você é capaz de atingir uma velocidade considerável no céu!")
+                    break
+                else:
+                    print("Infelizmente você enfrenta dificuldades ao voar longas distâncias!")
+                    break
 
     # FUNÇÃO POUSAR
     def pousar(self):
